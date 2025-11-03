@@ -41,7 +41,7 @@ def fitness(
     
     X_subset = X.iloc[:, selected_cols]
     
-    #  أخذ عينة عشوائية إذا كانت البيانات كبيرة
+    # ⚡ أخذ عينة عشوائية إذا كانت البيانات كبيرة
     if len(X_subset) > max_samples:
         indices = np.random.choice(len(X_subset), size=max_samples, replace=False)
         X_sample = X_subset.iloc[indices]
@@ -55,7 +55,7 @@ def fitness(
         scores = cross_val_score(model, X_sample, y_sample, cv=cv, scoring=scoring, n_jobs=1)
         base_score = -float(scores.mean())  # MSE موجب
         
-        #  إضافة عقوبة بعدد الميزات 
+        # ⚡ إضافة عقوبة بعدد الميزات (لتشجيع البساطة)
         penalty = lambda_penalty * (n_selected / X.shape[1])
         return base_score + penalty
         
