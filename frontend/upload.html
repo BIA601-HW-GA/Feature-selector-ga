@@ -241,7 +241,6 @@
       submitBtn.textContent = 'Processing...';
       progress.style.display = 'block';
       try {
-        // ✅ التعديل الوحيد: تغيير /run إلى /api/run
         const res = await fetch('/api/run', {
           method: 'POST',
           body: formData
@@ -261,4 +260,5 @@
     });
   </script>
 </body>
+
 </html>
