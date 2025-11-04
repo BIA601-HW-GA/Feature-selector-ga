@@ -37,5 +37,3 @@ app.mount("/outputs", StaticFiles(directory=str(PROJECT_ROOT / "outputs"), html=
 @app.on_event("startup")
 def startup_event():
     logger.info("Application started successfully")
-
-# For debugging purposes, you can keep the old main_improved.py as a backup, but it's no longer needed.
